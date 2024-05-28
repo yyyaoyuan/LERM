@@ -10,65 +10,6 @@ from run_tcn import run_tcn
 #-----------------------------------------#
 # read mat files
 #-----------------------------------------#
-# For Office31
-# source_exp = [ad.SDD, ad.SWD, ad.SAD, ad.SWD, ad.SAD, ad.SDD]
-# target_exp = [ad.TAR, ad.TAR, ad.TDR, ad.TDR, ad.TWR, ad.TWR]
-# results_name = 'ccN_Office31'
-
-# For Office-Home
-#source_exp = [ad.SClD, ad.SPrD, ad.SReD, ad.SArD, ad.SPrD, ad.SReD, ad.SArD, ad.SClD, ad.SReD, ad.SArD, ad.SClD, ad.SPrD]
-#target_exp = [ad.TArR, ad.TArR, ad.TArR, ad.TClR, ad.TClR, ad.TClR, ad.TPrR, ad.TPrR, ad.TPrR, ad.TReR, ad.TReR, ad.TReR]
-# results_name = 'ccN_OH'
-
-#For T2I
-# source_exp = [ad.SN]
-# target_exp = [ad.TI]
-# results_name = 'ccN_T2I'
-
-#For Text Classification
-#source_exp = [ad.E, ad.F, ad.G, ad.I, ad.E, ad.F, ad.G, ad.I, ad.E, ad.F, ad.G, ad.I, ad.E, ad.F, ad.G, ad.I]
-#target_exp = [ad.S5, ad.S5, ad.S5, ad.S5, ad.S10, ad.S10, ad.S10, ad.S10, ad.S15, ad.S15, ad.S15, ad.S15, ad.S20, ad.S20, ad.S20, ad.S20]
-# results_name = 'ccN_TC'
-
-# Total
-# source_exp = [ad.SDD, ad.SWD, ad.SAD, ad.SWD, ad.SAD, ad.SDD, 
-#               ad.SN,
-#               ad.SClD, ad.SPrD, ad.SReD, ad.SArD, ad.SPrD, ad.SReD, ad.SArD, ad.SClD, ad.SReD, ad.SArD, ad.SClD, ad.SPrD,
-#               ad.E, ad.F, ad.G, ad.I, ad.E, ad.F, ad.G, ad.I, ad.E, ad.F, ad.G, ad.I, ad.E, ad.F, ad.G, ad.I]
-# target_exp = [ad.TAR, ad.TAR, ad.TDR, ad.TDR, ad.TWR, ad.TWR,  
-#               ad.TI,
-#               ad.TArR, ad.TArR, ad.TArR, ad.TClR, ad.TClR, ad.TClR, ad.TPrR, ad.TPrR, ad.TPrR, ad.TReR, ad.TReR, ad.TReR, 
-#               ad.S5, ad.S5, ad.S5, ad.S5, ad.S10, ad.S10, ad.S10, ad.S10, ad.S15, ad.S15, ad.S15, ad.S15, ad.S20, ad.S20, ad.S20, ad.S20]
-# results_name = 'ccN-t0-1'
-
-#For sentiment classification across languages
-# source_exp = [ad.SBEN, ad.SBEN, ad.SBEN, ad.SDEN, ad.SDEN, ad.SDEN, ad.SMEN, ad.SMEN, ad.SMEN]
-# target_exp = [ad.TBFR, ad.TBGE, ad.TBJP, ad.TDFR, ad.TDGE, ad.TDJP, ad.TMFR, ad.TMGE, ad.TMJP]
-#-------------------------#
-#For sentiment classification across languages and products
-#source_exp = [ad.SBEN, ad.SBEN, ad.SBEN, ad.SBEN, ad.SDEN, ad.SDEN, ad.SDEN, ad.SDEN, ad.SMEN, ad.SMEN, ad.SMEN, ad.SMEN]
-#target_exp = [ad.TDFR, ad.TMGE, ad.TDGE, ad.TMJP, ad.TBFR, ad.TMGE, ad.TBGE, ad.TMJP, ad.TBFR, ad.TDGE, ad.TBGE, ad.TDJP]
-#-------------------------#
-#For text classification across languages
-# source_exp = [ad.SEN, ad.SEN, ad.SEN, ad.SEN, ad.SFR, ad.SFR, ad.SFR, ad.SFR, ad.SGE, ad.SGE, ad.SGE, ad.SGE, ad.SIT, ad.SIT, ad.SIT, ad.SIT, ad.SSP, ad.SSP, ad.SSP, ad.SSP]
-# target_exp = [ad.TFR, ad.TGE, ad.TIT, ad.TSP, ad.TEN, ad.TGE, ad.TIT, ad.TSP, ad.TEN, ad.TFR, ad.TIT, ad.TSP, ad.TEN, ad.TFR, ad.TGE, ad.TSP, ad.TEN, ad.TFR, ad.TGE, ad.TIT]
-# results_name = 'results-text'
-
-# source_exp = [ad.SBEN, ad.SBEN, ad.SBEN, ad.SDEN, ad.SDEN, ad.SDEN, ad.SMEN, ad.SMEN, ad.SMEN,
-#               ad.SBEN, ad.SBEN, ad.SBEN, ad.SBEN, ad.SDEN, ad.SDEN, ad.SDEN, ad.SDEN, ad.SMEN, ad.SMEN, ad.SMEN, ad.SMEN,
-#               ad.SEN, ad.SEN, ad.SEN, ad.SEN, ad.SFR, ad.SFR, ad.SFR, ad.SFR, ad.SGE, ad.SGE, ad.SGE, ad.SGE, ad.SIT, ad.SIT, ad.SIT, ad.SIT, ad.SSP, ad.SSP, ad.SSP, ad.SSP]
-# target_exp = [ad.TBFR, ad.TBGE, ad.TBJP, ad.TDFR, ad.TDGE, ad.TDJP, ad.TMFR, ad.TMGE, ad.TMJP,
-#               ad.TDFR, ad.TMGE, ad.TDGE, ad.TMJP, ad.TBFR, ad.TMGE, ad.TBGE, ad.TMJP, ad.TBFR, ad.TDGE, ad.TBGE, ad.TDJP,
-#               ad.TFR, ad.TGE, ad.TIT, ad.TSP, ad.TEN, ad.TGE, ad.TIT, ad.TSP, ad.TEN, ad.TFR, ad.TIT, ad.TSP, ad.TEN, ad.TFR, ad.TGE, ad.TSP, ad.TEN, ad.TFR, ad.TGE, ad.TIT]
-# results_name = 'results-total'
-
-
-source_name = ["E", "F", "G", "I"]
-target_name = ["S5", "S5", "S5", "S5"]
-# source_name = ["SN"]
-# target_name = ["TI"]
-
-
 # Test
 source_exp = [ad.E, ad.F, ad.G, ad.I]
 target_exp = [ad.S5, ad.S5, ad.S5, ad.S5]
